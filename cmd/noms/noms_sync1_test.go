@@ -5,6 +5,7 @@
 package main
 
 import (
+	"log"
 	"path"
 	"testing"
 
@@ -29,6 +30,7 @@ type nomsAgSyncTestSuite struct {
 
 func (s *nomsAgSyncTestSuite) TestSync() {
 	source1 := dataset.NewDataset(datas.NewDatabase(chunks.NewLevelDBStore(s.LdbDir, "", 1, false)), "src")
+	log.Printf("Dataset ID = %s",source1.ID())
 	source1, err := source1.CommitValue(types.Number(42))
 	s.NoError(err)
 	source2, err := source1.CommitValue(types.Number(43))
@@ -40,6 +42,7 @@ func (s *nomsAgSyncTestSuite) TestSync() {
 	ldb2dir := path.Join(s.TempDir, "ldb2")
 	sinkDatasetSpec := spec.CreateValueSpecString("ldb", ldb2dir, "dest")
 	sout, _ := s.Run(main, []string{"sync", sourceSpec, sinkDatasetSpec})
+	log.Print(sout)
 
 	s.Regexp("Created", sout)
 	dest := dataset.NewDataset(datas.NewDatabase(chunks.NewLevelDBStore(ldb2dir, "", 1, false)), "dest")

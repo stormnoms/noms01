@@ -1,0 +1,4 @@
+#!/bin/bash
+# Delete test files from the noms src tree
+
+rm $GOPATH/src/github.com/attic-labs/noms/cmd/noms/noms_sync1_test.go
