@@ -5,13 +5,18 @@ These are additional tests that you may want to run with
 (https://github.com/attic-labs/noms)
 
 Start off by cloning this repo if you plan on making changes to it.
+
 Copy the test files over to the noms source tree by running this command.
-This will pollute your noms src tree with these files, there is a script
-to remove these files once you have ran the extra tests.
+
+This will pollute your noms src tree with the extra test files, there is a script
+called **adel** to remove these files once you have run the extra tests.
 
 ```
 ./acp
 ```
+
+Now you can run only these test files by going to the directory
+you are interested in testing further.
 
 ```
 gtv -run 'Ag'
