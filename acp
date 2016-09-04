@@ -1,0 +1,4 @@
+#!/bin/bash
+# Copy test files over to noms src tree
+
+cp $GOPATH/noms01/cmd/noms/noms_sync1_test.go $GOPATH/src/github.com/attic-labs/noms/cmd/noms
